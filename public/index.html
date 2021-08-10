@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>React App</title>
 
@@ -17,29 +17,40 @@
       crossorigin
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <div id="my-element"></div>
+    <div id="container"></div>
 
     <script type="text/babel">
-      class Movie extends React.Component {
+      class Comment extends React.Component {
+        edit() { alert("edit");}
+
+        remove() {alert("remove");}
+
         render() {
           return (
-            <div>
-              <h1>{this.props.title}</h1>
-              <h2>{this.props.genre}</h2>
+            <div className="container alert alert-primary">
+              <div className="alert alert-light">Comment of fulanito</div>
+              <button onClick={this.edit} className="btn btn-primary">edit</button>
+              <button onClick={this.remove} className="btn btn-danger" style={{marginLeft: "10px"}}>remove</button>
             </div>
           );
         }
       }
 
       ReactDOM.render(
-        <div>
-          <Movie title="Black Widow" genre="action" />
-          <Movie title="Titanic" genre="romance" />
-          <Movie title="Sherlock" genre="mistery" />
+        <div className="board">
+          <Comment>Comment</Comment>
         </div>,
-        document.querySelector("#my-element")
+        document.querySelector("#container")
       );
     </script>
   </body>
