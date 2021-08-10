@@ -22,13 +22,12 @@
     <div id="my-element"></div>
 
     <script type="text/babel">
-      class MyClassComponent extends React.Component {
+      class Movie extends React.Component {
         render() {
-          //return React.createElement("h2", null, "MyClassComponent"); // also can be
           return (
             <div>
-              <h2>MyClassComponent</h2>
-              <p>parrafo</p>
+              <h1>{this.props.title}</h1>
+              <h2>{this.props.genre}</h2>
             </div>
           );
         }
@@ -36,8 +35,9 @@
 
       ReactDOM.render(
         <div>
-          <MyClassComponent />,
-          <MyClassComponent />
+          <Movie title="Black Widow" genre="action" />
+          <Movie title="Titanic" genre="romance" />
+          <Movie title="Sherlock" genre="mistery" />
         </div>,
         document.querySelector("#my-element")
       );
