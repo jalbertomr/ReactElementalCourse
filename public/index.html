@@ -25,12 +25,20 @@
       class MyClassComponent extends React.Component {
         render() {
           //return React.createElement("h2", null, "MyClassComponent"); // also can be
-          return <h2>MyClassComponent</h2>;
+          return (
+            <div>
+              <h2>MyClassComponent</h2>
+              <p>parrafo</p>
+            </div>
+          );
         }
       }
 
       ReactDOM.render(
-        <MyClassComponent />,
+        <div>
+          <MyClassComponent />,
+          <MyClassComponent />
+        </div>,
         document.querySelector("#my-element")
       );
     </script>
