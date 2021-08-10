@@ -19,12 +19,19 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
-    <div id="MyElement"></div>
+    <div id="my-element"></div>
 
     <script type="text/babel">
+      class MyClassComponent extends React.Component {
+        render() {
+          //return React.createElement("h2", null, "MyClassComponent"); // also can be
+          return <h2>MyClassComponent</h2>;
+        }
+      }
+
       ReactDOM.render(
-        <h2>MyElement Created and Displayed</h2>,
-        document.getElementById("MyElement")
+        <MyClassComponent />,
+        document.querySelector("#my-element")
       );
     </script>
   </body>
