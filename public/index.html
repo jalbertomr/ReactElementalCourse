@@ -38,7 +38,7 @@
         render() {
           return (
             <div className="container alert alert-primary">
-              <div className="alert alert-light">Comment of fulanito</div>
+              <div className="alert alert-light">{this.props.children}</div>
               <button onClick={this.edit} className="btn btn-primary">edit</button>
               <button onClick={this.remove} className="btn btn-danger" style={{marginLeft: "10px"}}>remove</button>
             </div>
@@ -48,7 +48,9 @@
 
       ReactDOM.render(
         <div className="board">
-          <Comment>Comment</Comment>
+          <Comment>How to refer to this comment by component</Comment>
+          <Comment>you need to use this.props.children</Comment>
+          <Comment>refer this comment element by the component</Comment>
         </div>,
         document.querySelector("#container")
       );
