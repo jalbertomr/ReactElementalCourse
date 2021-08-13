@@ -30,28 +30,35 @@
     <div id="container"></div>
 
     <script type="text/babel">
-      class Comment extends React.Component {
-        edit() { alert("edit");}
-
-        remove() {alert("remove");}
-
+      class CheckBox extends React.Component {
+        constructor(props){
+          super(props);
+          this.state = {checked: true}
+        }
+        
         render() {
+         var msg = "message";
+         
+         if (this.state.checked) {
+           msg="checked"}
+         else{
+           msg="Not checked"
+         };
+        
           return (
-            <div className="container alert alert-primary">
-              <div className="alert alert-light">{this.props.children}</div>
-              <button onClick={this.edit} className="btn btn-primary">edit</button>
-              <button onClick={this.remove} className="btn btn-danger" style={{marginLeft: "10px"}}>remove</button>
+            <div>
+              <label>
+              <input type="checkbox" defaultChecked={this.state.checked}/>
+              Checkbox is {msg}
+              </label>
             </div>
           );
         }
       }
 
       ReactDOM.render(
-        <div className="board">
-          <Comment>How to refer to this comment by component</Comment>
-          <Comment>you need to use this.props.children</Comment>
-          <Comment>refer this comment element by the component</Comment>
-        </div>,
+        <CheckBox />,
+        //React.createElement("input",{type: "checkbox",defaultChecked: true}),
         document.querySelector("#container")
       );
     </script>
