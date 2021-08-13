@@ -36,6 +36,10 @@
           this.state = {checked: true}
         }
         
+        handleChange = () => { 
+          this.setState({checked: !this.state.checked});
+        }
+
         render() {
          var msg = "message";
          
@@ -48,7 +52,8 @@
           return (
             <div>
               <label>
-              <input type="checkbox" defaultChecked={this.state.checked}/>
+              <input type="checkbox" defaultChecked={this.state.checked}
+              onChange={this.handleChange}/>
               Checkbox is {msg}
               </label>
             </div>
